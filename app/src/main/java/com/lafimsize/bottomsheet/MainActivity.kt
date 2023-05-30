@@ -8,6 +8,8 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.ViewGroup
 import android.view.Window
+import android.view.animation.AnimationUtils
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.lafimsize.bottomsheet.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -33,19 +35,20 @@ class MainActivity : AppCompatActivity() {
 
     private fun openDialog(){
 
+        val contentView=layoutInflater.inflate(R.layout.fragment_dialog,null)
 
-        dialog=Dialog(this)
+
+
+        dialog=BottomSheetDialog(this,R.style.DialogAnimationAndStyle)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
 
-        dialog.setContentView(R.layout.fragment_dialog)
+        dialog.setContentView(contentView)
+
+        dialog.window?.attributes?.windowAnimations=R.style.DialogAnimationAndStyle
 
 
         dialog.show()
-        dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
-        dialog.window?.attributes?.windowAnimations=R.style.DialogAnimation
-        dialog.window?.setGravity(Gravity.BOTTOM)
 
 
 
