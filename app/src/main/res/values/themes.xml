@@ -7,8 +7,19 @@
 
     <style name="Theme.BottomSheet" parent="Base.Theme.BottomSheet" />
 
-    <style name="DialogAnimation">
+
+    <style name="BottomSheetBack" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">#00000000</item>
+    </style>
+
+    <style name="DialogAnimationAndStyle" parent="Theme.MaterialComponents.Light.BottomSheetDialog" >
+
+
+
         <item name="android:windowEnterAnimation">@anim/slide_in</item>
         <item name="android:windowExitAnimation">@anim/slide_out</item>
+
+        <item name="bottomSheetStyle">@style/BottomSheetBack</item>
+
     </style>
 </resources>
