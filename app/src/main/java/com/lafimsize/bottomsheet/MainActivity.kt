@@ -8,6 +8,8 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.ViewGroup
 import android.view.Window
+import android.widget.FrameLayout
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.lafimsize.bottomsheet.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -19,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
 
+
         binding=ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
@@ -26,6 +29,14 @@ class MainActivity : AppCompatActivity() {
         binding.bottomSheetDialogOpen.setOnClickListener {
 
             openDialog()
+        }
+
+        val sheet=findViewById<FrameLayout>(R.id.bttmsheet)
+
+        BottomSheetBehavior.from(sheet).apply {
+            peekHeight=200
+            //state=BottomSheetBehavior.STATE_COLLAPSED
+
         }
 
     }
@@ -46,6 +57,7 @@ class MainActivity : AppCompatActivity() {
 
         dialog.window?.attributes?.windowAnimations=R.style.DialogAnimation
         dialog.window?.setGravity(Gravity.BOTTOM)
+
 
 
 
